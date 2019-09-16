@@ -12,10 +12,10 @@ import java.util.Date;
 @Data
 @Entity
 public class PurchaserProduct {
-    public PurchaserProduct(Integer purchaserId, Integer productId) {
+    public PurchaserProduct(Integer purchaserId, Integer productId, Date createDate) {
         this.purchaserId = purchaserId;
         this.productId = productId;
-        this.createdDate = new Date();
+        this.createdDate = createDate;
         this.deleted = 0;
         this.lastModified = new Date();
     }
@@ -28,7 +28,7 @@ public class PurchaserProduct {
 
     private Integer productId;
 
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date createdDate;
 
     private Integer deleted;
