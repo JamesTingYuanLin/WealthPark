@@ -47,15 +47,23 @@ public class PurchaserProductController {
     }
 
     private Map formatResult(List<PurchaserProduct> list, Date start, Date end) {
-        Map result = new HashMap<String, Map<String, List<String>>>();
-        for (PurchaserProduct p : list) {
-            Map m = new HashMap<String, List<String>>();
-            List l = new ArrayList<String>();
-            l.add(p.getProductId());
-            m.put(p.getCreatedDate(),l);
-            result.put(p.getPurchaserId(), m);
+        Map<String, Map<String, List<String>>> result = new HashMap<String, Map<String, List<String>>>();
+        if (list.size() > 0) {
+            Map<String, List<String>> m = new HashMap<String, List<String>>();
+            result.put(list.get(0).getPurchaserId().toString(), m);
+            for (PurchaserProduct p : list) {
+                Map<String, List<String>> tmp = result.get(list.get(0).getPurchaserId().toString());
+                if (tmp.get(p.getCreatedDate().toString()) == null) {
+                    List l = new ArrayList<String>();
+                    l.add(p.getProductId());
+                    tmp.put(p.getCreatedDate().toString(), l);
+                } else {
+                    List l = tmp.get(p.getCreatedDate().toString());
+                    l.add(p.getProductId());
+                    tmp.put(p.getCreatedDate().toString(), l);
+                }
+            }
         }
-
         return result;
     }
 
