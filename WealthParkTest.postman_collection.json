@@ -1,0 +1,194 @@
+{
+	"info": {
+		"_postman_id": "ab552e10-1dba-4fde-8feb-d6b6c7a8c721",
+		"name": "WealthParkTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/contacts",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllPurchasers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/purchaser",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"purchaser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addNewPurchaser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/purchaser/add/tester",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"purchaser",
+						"add",
+						"tester"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllProducts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/product",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addNewProduct",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/product/add/tester",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product",
+						"add",
+						"tester"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllPurchaserProduct",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/purchaser-product",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"purchaser-product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addPurchaserProduct",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ecc66ea9-72e1-4b12-aab7-d28786f00422",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"purchaserId\": 1,\n    \"productId\":3,\n    \"createdDate\": \"2019-09-20\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/purchaser-product/add",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"purchaser-product",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getProductsByPurchaser, Date",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/purchaser-product/purchaser/1/product?start_date=2019-09-15&end_date=2019-09-16",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"purchaser-product",
+						"purchaser",
+						"1",
+						"product"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2019-09-15"
+						},
+						{
+							"key": "end_date",
+							"value": "2019-09-16"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
