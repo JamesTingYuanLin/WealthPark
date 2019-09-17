@@ -10,6 +10,7 @@
 *Development tools: 
     IntelliJ, 
     Maven, Git, Github,
+    Postman (Postman collection file is under /WealthParkTest.postman_collection.json) (you can import it to postman)
 
 You can import the pom.xml into a maven project.
 After import, click run, the server would start.
