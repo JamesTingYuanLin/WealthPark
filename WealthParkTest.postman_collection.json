@@ -1,28 +1,10 @@
 {
 	"info": {
-		"_postman_id": "ab552e10-1dba-4fde-8feb-d6b6c7a8c721",
+		"_postman_id": "fba6b083-dc4d-4bec-81b6-200fdbbb8023",
 		"name": "WealthParkTest",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
-		{
-			"name": "test",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/contacts",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"contacts"
-					]
-				}
-			},
-			"response": []
-		},
 		{
 			"name": "getAllPurchasers",
 			"request": {
@@ -45,17 +27,27 @@
 			"name": "addNewPurchaser",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"James\"}"
+				},
 				"url": {
-					"raw": "localhost:8080/purchaser/add/tester",
+					"raw": "localhost:8080/purchaser/add",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"purchaser",
-						"add",
-						"tester"
+						"add"
 					]
 				}
 			},
@@ -83,17 +75,27 @@
 			"name": "addNewProduct",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"Grape\"}"
+				},
 				"url": {
-					"raw": "localhost:8080/product/add/tester",
+					"raw": "localhost:8080/product/add",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"product",
-						"add",
-						"tester"
+						"add"
 					]
 				}
 			},
@@ -143,7 +145,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"purchaserId\": 1,\n    \"productId\":3,\n    \"createdDate\": \"2019-09-20\"\n}"
+					"raw": "{\n    \"purchaserId\": 2,\n    \"productId\": 3,\n    \"createdDate\": \"2019-09-18\"\n}"
 				},
 				"url": {
 					"raw": "localhost:8080/purchaser-product/add",
@@ -165,7 +167,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/purchaser-product/purchaser/1/product?start_date=2019-09-15&end_date=2019-09-16",
+					"raw": "localhost:8080/purchaser-product/purchaser/1/product?start_date=2019-09-15&end_date=2019-09-20",
 					"host": [
 						"localhost"
 					],
@@ -183,7 +185,7 @@
 						},
 						{
 							"key": "end_date",
-							"value": "2019-09-16"
+							"value": "2019-09-20"
 						}
 					]
 				}
