@@ -1,5 +1,6 @@
 package com.wealthPark.restful.controller;
 
+import com.wealthPark.restful.format.request.ProductParams;
 import com.wealthPark.restful.model.Product;
 import com.wealthPark.restful.repository.ProductRepository;
 import org.springframework.web.bind.annotation.*;
@@ -21,8 +22,14 @@ public class ProductController {
         return repository.findAll();
     }
 
-    @PostMapping (path = {"add/{name}"})
-    public void addPurchaser(@PathVariable String name) {
-        repository.save(new Product(name));
+    @PostMapping (path = {"add"})
+    public void addPurchaser(@RequestBody ProductParams product) {
+        repository.save(new Product(product.getName()));
     }
+
+//    @PostMapping (path = {"add/{name}"})
+//    public void addPurchaser(@PathVariable String name) {
+//        repository.save(new Product(name));
+//    }
+
 }
