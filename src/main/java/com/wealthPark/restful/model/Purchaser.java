@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -25,6 +26,10 @@ public class Purchaser {
     private String name;
 
     private Date createdDate;
+
+    @OneToMany(targetEntity = PurchaserProduct.class, mappedBy = "purchaserId")
+//    @JoinColumn(name = "purchaserId" )
+    private List<PurchaserProduct> purchaserProduct;
 
     public String getName() {
         return name;

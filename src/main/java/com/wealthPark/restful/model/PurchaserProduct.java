@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -35,12 +36,12 @@ public class PurchaserProduct {
 
     private Date lastModified;
 
-    @OneToOne
-    @JoinColumn(name = "id")
+    @ManyToOne(targetEntity = Purchaser.class/*, mappedBy = "id"*/)
+    @JoinColumn(name = "purchaserId", insertable = false, updatable = false)
     private Purchaser purchaser;
 
-    @OneToOne
-    @JoinColumn(name = "id")
+    @ManyToOne(targetEntity = Product.class/*, mappedBy = "id"*/)
+    @JoinColumn(name = "productId", insertable = false, updatable = false)
     private Product product;
 
     public Integer getPurchaserId() {

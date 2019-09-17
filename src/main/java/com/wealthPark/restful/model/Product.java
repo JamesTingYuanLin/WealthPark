@@ -4,11 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -28,6 +26,10 @@ public class Product {
     private String name;
 
     private Date createdDate;
+
+    @OneToMany(targetEntity = PurchaserProduct.class, mappedBy = "productId")
+//    @JoinColumn(name = "productId")
+    private List<PurchaserProduct> purchaserProduct;
 
     public String getName() {
         return name;

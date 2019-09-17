@@ -16,5 +16,6 @@ public interface PurchaserProductRepository extends JpaRepository<PurchaserProdu
     @Query("select p from PurchaserProduct p where p.createdDate between :startDate and :endDate")
     List<PurchaserProduct> findByCreatedDateBetween(Date startDate, Date endDate);
 
+    @Query(value = "select pp from PurchaserProduct pp inner join Product pd on pp.productId = pd.id where pp.purchaserId = :purchaserId")
     List findByPurchaserId(Integer purchaserId);
 }

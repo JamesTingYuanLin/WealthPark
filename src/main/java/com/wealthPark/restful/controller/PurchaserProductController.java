@@ -46,7 +46,6 @@ public class PurchaserProductController {
 //        return repository.findByPurchaserIdAndCreatedDateBetween(purchaserId, Date.from(startLocalDate.atStartOfDay(ZoneId.systemDefault()).toInstant()), Date.from(endLocalDate.atStartOfDay(ZoneId.systemDefault()).toInstant()));
 //        return repository.findByCreatedDateBetween(Date.from(startLocalDate.atStartOfDay(ZoneId.systemDefault()).toInstant()), Date.from(endLocalDate.atStartOfDay(ZoneId.systemDefault()).toInstant()));
         List<PurchaserProduct> tmp = repository.findByPurchaserId(purchaserId);
-//        tmp.get(0).getPurchaser().getName();
         Map m = OutputFormatter.formatResult(tmp, startDate, endDate);
         return m;
     }
